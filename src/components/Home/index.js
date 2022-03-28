@@ -1,4 +1,3 @@
-import Header from "../Header";
 import {useState, useEffect} from "react";
 import styled from 'styled-components';
 import axios from "axios";
@@ -7,7 +6,6 @@ import {Link} from "react-router-dom";
 
 export default function Home(){
     const [film, setFilm] = useState([]);
-    console.log('aq')
     useEffect(() => {
         const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
         promise.then(response => {
@@ -15,8 +13,6 @@ export default function Home(){
          });
      }, []);
     return(
-        <>
-        <Header/> 
         <WrapperHome>
                 <div className = "Sub-Title">
                     <h2>Selecione o filme</h2>
@@ -24,12 +20,13 @@ export default function Home(){
                 <div>
                 {film.map((films) => {
                     return (<div key={films.id} className="movie">
-                    <img src={films.posterURL} alt={films.title} />
+                        <Link to={`/filme/${films.id}`}>
+                            <img src={films.posterURL} alt={films.title} />
+                        </Link>
                   </div>)
                 })}
                 </div>
         </WrapperHome>
-        </>
     )
 }
 

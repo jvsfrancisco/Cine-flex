@@ -1,5 +1,9 @@
-import {render} from "react-dom";
+import ReactDOM from "react-dom";
+
 import App from "./components/App";
 
-render(<App/>, document.querySelector(".root"));
+const app = <App />;
+const root = document.querySelector('.root');
+
+ReactDOM.render(app, root);
 
