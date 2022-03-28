@@ -8,8 +8,12 @@ export default function Header(){
 }
 
 const WrapperHeader = styled.header`
+    position: fixed;
+    z-index: 1;
+    top: 0;
     background: rgba(195, 207, 217, 1);
-    height: 67px;
+    height: 75px;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     width: 100%;
     dislay: flex;
     justify-content: center;
