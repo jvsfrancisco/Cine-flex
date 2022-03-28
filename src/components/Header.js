@@ -11,11 +11,9 @@ const WrapperHeader = styled.header`
     background: rgba(195, 207, 217, 1);
     height: 67px;
     width: 100%;
-    dis
-    lay: flex;
+    dislay: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Roboto', sans-serif;;
     font-style: normal;
     font-weight: 300;
     font-size: 34px;
