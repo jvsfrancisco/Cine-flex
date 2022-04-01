@@ -2,9 +2,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import Seats from "./Seats";
 
-export default function BookingSeats({ film, setFilm }) {
+import Seats from "./Seats";
+import Footer from "./../Footer";
+import Loading from "./../Loading";
+
+function BookingSeats({ film, setFilm }) {
   const [session, setSession] = useState({ seats: [] });
   const [select, setSelect] = useState([]);
   const [book, setBook] = useState({});
@@ -35,7 +38,7 @@ export default function BookingSeats({ film, setFilm }) {
       setSession(response.data);
     });
     promise.catch((err) => console.log(err.status, err.message));
-  }, []); 
+  }, []);
 
   function sentData(e) {
     e.preventDefault();
@@ -78,9 +81,9 @@ export default function BookingSeats({ film, setFilm }) {
   const day =
     seats.length > 0 ? `${session.day.weekday} - ${session.day.date}` : "";
 
-  return (
-
-      <BookingWrapper className="BookSeats">
+  return seats.length !== 0 ? (
+    <>
+      <Main className="BookSeats">
         <h2>Selecione o(s) assento(s)</h2>
         <Seats seats={seats} setSelect={updateSelect} select={select} />
         {select.length > 0 ? (
@@ -123,12 +126,13 @@ export default function BookingSeats({ film, setFilm }) {
         ) : (
           <></>
         )}
-      </BookingWrapper>
-)
-
+      </Main>
+      <Footer description={[session.movie.title,day]} poster = {session.movie.posterURL}/>
+    </>
+  ) : ( <Loading/> );
 }
 
-const BookingWrapper = styled.main`
+const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,3 +180,5 @@ const BookingWrapper = styled.main`
     opacity: 0.5;
   }
 `;
+
+export default BookingSeats;

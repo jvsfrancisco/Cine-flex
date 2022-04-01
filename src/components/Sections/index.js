@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import Footer from "./../Footer";
 
 export default function Sections() {
   const { MovieId } = useParams();
@@ -44,6 +45,7 @@ export default function Sections() {
           })}
         </div>
       </Main>
+      <Footer description ={[film.title]} poster = {film.posterURL}/>
     </>
   ) 
 }
