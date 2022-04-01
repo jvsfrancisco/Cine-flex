@@ -51,8 +51,8 @@ img {
 .Sub-Title {
     width: 100%;
     height: 80px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 90px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
