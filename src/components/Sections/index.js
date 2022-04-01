@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import Footer from "./../Footer";
+import Loading from "../Loading";
 
 export default function Sections() {
   const { MovieId } = useParams();
@@ -20,7 +21,7 @@ export default function Sections() {
 
   const sections = film.days;
 
-  return (
+  return sections.length !== 0 ?(
     <>
       <Main>
         <h2>Selecione o horário</h2>
@@ -47,7 +48,7 @@ export default function Sections() {
       </Main>
       <Footer description ={[film.title]} poster = {film.posterURL}/>
     </>
-  ) 
+  ) : ( <Loading/>);
 }
 
 const Main = styled.main`

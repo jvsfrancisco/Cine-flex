@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import styled from 'styled-components';
 import axios from "axios";
 import {Link} from "react-router-dom";
+import Loading from "../Loading";
 
 
 export default function Home(){
@@ -12,7 +13,7 @@ export default function Home(){
             setFilm(response.data);
          });
      }, []);
-    return(
+    return film.length !== 0 ?(
         <WrapperHome>
                 <div className = "Sub-Title">
                     <h2>Selecione o filme</h2>
@@ -27,7 +28,7 @@ export default function Home(){
                 })}
                 </div>
         </WrapperHome>
-    )
+    ) : ( <Loading/>);
 }
 
 const WrapperHome = styled.main`
