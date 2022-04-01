@@ -3,6 +3,7 @@ import Header from "./Header";
 import Homepage from "./Home";
 import Sections from "./Sections";
 import BookingSeats from "./BookSeats";
+import Sucess from "./Sucess";
 import { useState } from "react";
 
 import "./../assets/css/reset.css";
@@ -19,8 +20,10 @@ function App() {
         <Route path="/" element={<Homepage/>} />
         <Route path="/filme/:MovieId" element={<Sections/>} />
         <Route path ="/assentos/:sessionId" element={<BookingSeats
-        movie = {film}
-        setMovie = {setFilm}/>} />
+        film = {film}
+        setFilm = {setFilm}/>} />
+        <Route path ="/sucesso" element={<Sucess
+        title = {film.title} day = {film.day} buyers = {film.buyers} setFilm = {setFilm}/>} />
       </Routes>
     </BrowserRouter>
   );
