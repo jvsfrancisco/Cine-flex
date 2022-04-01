@@ -90,7 +90,7 @@ const Main = styled.main`
     margin-right: 8px;
     width: 83px;
     height: 43px;
-    border: none;
+    border-decoration: none;
     color: #FFFFFF;
     font-size: 18px;
   }

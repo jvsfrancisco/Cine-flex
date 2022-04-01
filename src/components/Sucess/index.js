@@ -86,5 +86,19 @@ const Main = styled.main`
     height: 42px;
     border: none;
     line-height: 21px;
+    background-color: #E8833A;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+
   }
 `;

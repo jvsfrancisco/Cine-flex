@@ -83,7 +83,7 @@ function BookingSeats({ film, setFilm }) {
 
   return seats.length !== 0 ? (
     <>
-      <Main className="BookSeats">
+      <Wrapper className="BookSeats">
         <h2>Selecione o(s) assento(s)</h2>
         <Seats seats={seats} setSelect={updateSelect} select={select} />
         {select.length > 0 ? (
@@ -118,7 +118,7 @@ function BookingSeats({ film, setFilm }) {
                   </div>
                 );
               })}
-              <button type="submit" disabled={enableButton()}>
+              <button className="reservar" type="submit" disabled={enableButton()}>
                 Reservar assento(s)
               </button>
             </form>
@@ -126,13 +126,13 @@ function BookingSeats({ film, setFilm }) {
         ) : (
           <></>
         )}
-      </Main>
+      </Wrapper>
       <Footer description={[session.movie.title,day]} poster = {session.movie.posterURL}/>
     </>
   ) : ( <Loading/> );
 }
 
-const Main = styled.main`
+const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -170,11 +170,24 @@ const Main = styled.main`
     font-style: italic;
     opacity: 0.8;
   }
-  form button {
+  .reservar {
     width: 225px;
     height: 42px;
     margin-top: 50px;
     line-height: 21px;
+    background-color: #E8833A;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+    justify-content: center;
   }
   form button:disabled {
     opacity: 0.5;
