@@ -46,3 +46,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+* {
+    box-sizing: border-box;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #E5E5E5;
+    text-decoration: none;
+}
